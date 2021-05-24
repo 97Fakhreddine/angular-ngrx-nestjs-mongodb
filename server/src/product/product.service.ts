@@ -49,4 +49,13 @@ export class ProductService {
       return new Error(error.message);
     }
   }
+
+  async createMany(newListOfProducts): Promise<Error | string> {
+    try {
+      await this.productModel.insertMany(newListOfProducts);
+      return 'done';
+    } catch (error) {
+      return new Error(error.message);
+    }
+  }
 }

@@ -18,13 +18,19 @@ export class ProductController {
   async findAll(): Promise<Error | Product[]> {
     return await this.productRepository.findAll();
   }
+  
   @Get(':id')
   async findById(@Param('id') id: string): Promise<Error | Product> {
     return this.productRepository.findById(id);
   }
+
   @Post()
   async create(@Body() newProduct: Product): Promise<Error | string> {
     return await this.productRepository.create(newProduct);
+  }
+  @Post("many")
+  async createMany(@Body() newProduct: Product[]): Promise<Error | string> {
+    return await this.productRepository.createMany(newProduct);
   }
   @Put(':id')
   async updateOneProduct(
