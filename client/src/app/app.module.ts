@@ -9,6 +9,7 @@ import { ItemComponent } from './components/item/item.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppService } from './services/app.service';
 import { StoreModule } from '@ngrx/store';
+import { ItemlListService } from './services/iteml-list.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { StoreModule } from '@ngrx/store';
     HttpClientModule,
     StoreModule.forRoot({}, {}),
   ],
-  providers: [AppService],
+  providers: [AppService, ItemlListService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
