@@ -8,6 +8,8 @@ import { ItemListComponent } from './components/item-list/item-list.component';
 import { ItemComponent } from './components/item/item.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppService } from './services/app.service';
+import { StoreModule } from '@ngrx/store';
+import { ItemlListService } from './services/iteml-list.service';
 
 @NgModule({
   declarations: [
@@ -16,8 +18,13 @@ import { AppService } from './services/app.service';
     ItemListComponent,
     ItemComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [AppService],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    StoreModule.forRoot({}, {}),
+  ],
+  providers: [AppService, ItemlListService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
