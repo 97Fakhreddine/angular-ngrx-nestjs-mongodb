@@ -3,13 +3,13 @@ export const fakeData = [
     title: 'first product',
     overview: 'first test',
     image: 'http://placeimg.com/290/180/any',
-    price: 5,
+    price: 15,
   },
   {
     title: 'second product',
     overview: 'second test',
     image: 'http://placeimg.com/290/180/any',
-    price: 5,
+    price: 3,
   },
   {
     title: 'third product',
@@ -21,7 +21,7 @@ export const fakeData = [
     title: 'fourth product',
     overview: 'fourth test',
     image: 'http://placeimg.com/290/180/any',
-    price: 5,
+    price: 8,
   },
   {
     title: 'fifth product',
@@ -30,4 +30,3 @@ export const fakeData = [
     price: 5,
   },
 ];
-

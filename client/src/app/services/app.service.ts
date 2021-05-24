@@ -6,9 +6,10 @@ import { fakeData } from 'src/mockData/fakeData';
 })
 export class AppService {
   constructor(private http: HttpClient) {}
-  inserFakeData() {
+  async inserFakeData() {
     console.log('heeeel', fakeData);
-
-    return this.http.post('http://localhost:3000/product/many', fakeData);
+    return await this.http
+      .post('http://localhost:3000/product/many', fakeData)
+      .subscribe((res) => console.log(res));
   }
 }
