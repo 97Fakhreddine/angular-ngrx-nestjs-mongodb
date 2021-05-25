@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppService } from './services/app.service';
 import { StoreModule } from '@ngrx/store';
 import { ItemlListService } from './services/iteml-list.service';
+import { ProductReducer } from './store/product.reducer';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { ItemlListService } from './services/iteml-list.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({ itemList: ProductReducer }),
   ],
   providers: [AppService, ItemlListService],
   bootstrap: [AppComponent],
