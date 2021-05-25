@@ -1,3 +1,20 @@
-<div>
-    <app-item> </app-item>
+<div class="container w3-card">
+    <h3 class="mt-3 pb-3 mb-4 font-italic border-bottom">All the products</h3>
+    <div class="w3-row-padding w3-margin-top ui  images">
+        <div class="row" *ngFor="let item of items">
+            <div class="col-md-4">
+                <div class="card mb-4 text-white bg-dark">
+                    <img class="card-img-top" src="{{ item.image }}" alt=" Card image cap " />
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.title }}</h5>
+                        <p class="card-text">
+                            {{ item.overview }}
+                        </p>
+                        <a class="btn btn-outline-light btn-sm" (click)="seeDetailedCard(item)">See details</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
