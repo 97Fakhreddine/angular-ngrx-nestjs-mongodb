@@ -9,3 +9,7 @@ export const getItems = createSelector(
   (state: IState) => state.itemList
 );
 
+export const getOneItems = createSelector(
+  getState,
+  (state: IState) => state.oneItem
+);

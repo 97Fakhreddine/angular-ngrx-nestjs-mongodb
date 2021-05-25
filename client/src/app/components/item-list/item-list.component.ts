@@ -1,11 +1,12 @@
-import { ProductCard } from './../item/item.component';
-import { ItemlListService } from './../../services/iteml-list.service';
 import { Component, OnInit } from '@angular/core';
-import { Store, select } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { IState } from 'src/app/store/product.state';
-import { GET_ITEMS } from 'src/app/store/product.action';
-import { getItems, getState } from 'src/app/store/product.selector';
-import { Observable } from 'rxjs';
+import { getItems } from 'src/app/store/product.selector';
+import { Observable, VirtualTimeScheduler } from 'rxjs';
+import { ProductCard } from 'src/app/models/product.interface';
+import { getOneItems } from '../../store/product.selector';
+import { SEE_ITEMS } from '../../store/product.action';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-item-list',
   templateUrl: './item-list.component.html',
@@ -13,11 +14,20 @@ import { Observable } from 'rxjs';
 })
 export class ItemListComponent implements OnInit {
   itemList: Observable<ProductCard[]>;
-  state: any;
-  constructor(private store: Store<IState>) {
+  items: any;
+  constructor(private store: Store<IState>, private router: Router) {
     this.itemList = this.store.select(getItems);
   }
   ngOnInit() {
-    console.log('items from stores===>', this.itemList);
+    this.itemList.subscribe((data) => {
+      this.items = data;
+    });
+  }
+  public seeDetailedCard(item: ProductCard) {
+    this.store.dispatch({
+      type: SEE_ITEMS,
+      payload: item,
+    });
+    this.router.navigate(['productdetail']);
   }
 }
