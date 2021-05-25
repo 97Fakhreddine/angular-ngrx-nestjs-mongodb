@@ -44,8 +44,11 @@
 .list {
   display: flex;
   /* justify-content: center; */
-  /* align-items: center; */
+  /* align-items: center;.cards */
   width: 50%;
   float: right;
   padding: 20px;
+}
+.cards{
+    
 }
