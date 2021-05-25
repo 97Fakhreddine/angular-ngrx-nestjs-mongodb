@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { IState } from 'src/app/store/product.state';
 import { getItems } from 'src/app/store/product.selector';
-import { Observable, VirtualTimeScheduler } from 'rxjs';
+import { Observable } from 'rxjs';
 import { ProductCard } from 'src/app/models/product.interface';
-import { getOneItems } from '../../store/product.selector';
 import { SEE_ITEMS } from '../../store/product.action';
 import { Router } from '@angular/router';
 @Component({
